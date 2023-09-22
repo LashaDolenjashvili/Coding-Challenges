@@ -14,19 +14,16 @@ def compress_string(s):
     if not s:
         return ""
 
-
     # Initialization
     compressed = []
     count = 1
     prev_char = s[0]
 
-
-    # Loop through the string, starting 
-    # from the second character
+    # Loop through the string, starting from the second character
     for letter in s[1:]:
         if letter == prev_char:
             count += 1
-
+        # If the current letter doesn't match prev_char, it's a new character
         else:
             compressed.append(prev_char + str(count))
             prev_char = letter
@@ -35,6 +32,7 @@ def compress_string(s):
     # Finalize the result
     compressed.append(prev_char + str(count))
 
+    # Join and return the final string
     return ''.join(compressed)
 
 # Test our function
